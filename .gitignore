@@ -1,0 +1,6 @@
+
+*.iml
+*.xml
+vendor/
+hcl/plugin/vendor/github.com/agext/levenshtein/.travis.yml
+*.so
