@@ -23,6 +23,7 @@ type Config struct {
 
 type Mgr struct {
 	PluginType1 *plugin.Plugin
+	PluginType2 *plugin.Plugin
 }
 
 func main() {
@@ -76,6 +77,8 @@ func (m *Mgr) GetHcldecPlugin(myType string, cmd string) *plugin.Plugin {
 	switch myType {
 	case "plugin_type1":
 		m.PluginType1 = myPlugin
+	case "plugin_type2":
+		m.PluginType2 = myPlugin
 	default:
 		panic("Should be one of [plugin_type1]")
 	}

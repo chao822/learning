@@ -8,14 +8,8 @@ import (
 	"github.com/zclconf/go-cty/cty"
 )
 
-type BlockTest struct {
-	Test string `hcl:"test"`
-}
-
 type PluginConfig struct {
-	Data1     string    `hcl:"plugin_string_data"`
-	Data2     int       `hcl:"plugin_int_data"`
-	BlockData BlockTest `hcl:"plugin_block_data,block"`
+	Data string `hcl:"plugin_string_data"`
 }
 
 func ConfigSpec() hcldec.Spec {
@@ -24,16 +18,6 @@ func ConfigSpec() hcldec.Spec {
 			Name:     "plugin_string_data",
 			Type:     cty.String,
 			Required: true,
-		},
-		"plugin_int_data": &hcldec.AttrSpec{
-			Name:     "plugin_int_data",
-			Type:     cty.Number,
-			Required: true,
-		},
-		"plugin_block_data": &hcldec.BlockAttrsSpec{
-			TypeName:    "plugin_block_data",
-			ElementType: cty.String,
-			Required:    true,
 		},
 	}
 	return &spec
